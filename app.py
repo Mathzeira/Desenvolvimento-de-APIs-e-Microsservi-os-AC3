@@ -18,13 +18,13 @@ def add_data():
     data.append(new_data)
     return jsonify(new_data)
 
-@app.route('/data/<int:data_id>', methods=['DELETE'])
+@app.route('/comida/<int:data_id>', methods=['DELETE'])
 def delete_data(data_id):
     for d in data:
         if d['id'] == data_id:
             data.remove(d)
             return jsonify(d)
-    return jsonify({"error": "Data not found"}), 405
+    return jsonify({"error": "comida not found"}), 406
 
 if __name__ == '__main__':
     app.run(debug=True)
